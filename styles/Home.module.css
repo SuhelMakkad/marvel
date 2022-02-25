@@ -1,121 +1,188 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.bgHome {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: -1;
+}
+
+.ironManBg {
+  background-image: url(/index/iron-man-bg.png);
+}
+
+.thorBg {
+  background-image: url(/index/thor-bg.png);
+}
+
+.drStrangeBg {
+  background-image: url(/index/dr-starnge-bg.png);
+}
+
+.captainAmericaBg {
+  background-image: url(/index/captain-america-bg.png);
+}
+
+.bgHome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(104, 109, 110, 0.49);
+  z-index: -1;
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
+  padding: var(--margin);
+}
+
+.navbar {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
-.footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.marvelLogo {
+  --clip-path: circle(0% at 6rem 4rem);
+  font-weight: 900;
+  color: #fff;
+  background-color: var(--marvel-color);
+  font-size: 1.55rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+.marvelLogo::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  clip-path: var(--clip-path);
+  transition: clip-path 1s;
+  background-color: var(--marvel-color);
+  z-index: 100;
+  pointer-events: none;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.text {
+  color: #fff;
+  width: 50%;
+  margin-top: 12rem;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
 }
 
-.title,
-.description {
-  text-align: center;
+.discription {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.35;
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+.heroImgWrapper {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 42px;
+  width: max-content;
+  z-index: -1;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.heroImg {
+  width: 48vw;
+  min-width: 300px;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+.thor,
+.captainAmerica {
+  width: 40vw;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
+.exploreBtn {
+  font-size: 1.015rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 0.65em 1em;
+  padding-right: 2.2em;
+  color: #fff;
+  background-color: #00000021;
+  backdrop-filter: blur(5px);
+  position: fixed;
+  right: var(--margin-right-left);
+  bottom: var(--margin-top);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, padding-right 0.2s ease-in-out;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.exploreBtn:hover {
+  background-color: #0000003d;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.exploreBtn::after,
+.exploreBtn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1em;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.exploreBtn::after {
+  width: 0%;
+  height: 1px;
+  background-color: currentColor;
+  transform: translateY(-50%);
+  transition: width 0.2s ease-in-out;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.exploreBtn:hover {
+  padding-right: 4.2em;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
+.exploreBtn:hover.exploreBtn::after {
+  width: 25%;
+}
+
+.exploreBtn::before {
+  border: solid currentColor;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+@media (max-width: 350px) {
+  .heroImg {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 950px) {
+  .heroImgWrapper {
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text {
+    height: 70vh;
+    display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
   }
 }

@@ -1,9 +1,55 @@
-html,
-body {
-  padding: 0;
+@font-face {
+  font-family: marvel;
+  src: url(/fonts/BentonSans-Comp-Black-Regular.otf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: marvel;
+  src: url(/fonts/BentonSans-Comp-Bold-Regular.otf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: marvel;
+  src: url(/fonts/BentonSans-Comp-Regular-Regular.otf);
+  font-weight: 300;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(104, 109, 110, 0.49);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cacccc;
+  border-radius: 5px;
+}
+
+:root {
+  --margin-top: 3rem;
+  --margin-right-left: 4rem;
+
+  --margin: var(--margin-top) var(--margin-right-left) 0;
+  --marvel-color: #f0131e;
+  --marvel-color-dark: #c10203;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  font-family: marvel, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+
+  /* for mozilla */
+  scrollbar-color: #cacccc rgba(104, 109, 110, 0.49);
+  scrollbar-width: thin;
 }
 
 a {
@@ -11,6 +57,32 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+button {
+  border: none;
+  outline: none;
+}
+
+.mainWrapper {
+  margin: 0 var(--margin-right-left);
+  display: flex;
+  justify-content: center;
+}
+
+.mainWrapper .wrapper {
+  max-width: 100rem;
+  flex-grow: 1;
+}
+
+@media (max-width: 60rem) {
+  :root {
+    --margin-top: 2rem;
+    --margin-right-left: 3rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  :root {
+    --margin-top: 1rem;
+    --margin-right-left: 1rem;
+  }
 }

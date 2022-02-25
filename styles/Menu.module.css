@@ -1,0 +1,118 @@
+.menu {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  z-index: 2;
+  transform: translateY(0.5rem);
+}
+
+.menuBars {
+  position: relative;
+  transform: translateY(0.75rem);
+}
+
+.menuBars,
+.menuBars::after,
+.menuBars::before {
+  background-color: #fff;
+  width: 1.65rem;
+  height: 0.15rem;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+.menuBars::after,
+.menuBars::before {
+  content: "";
+  position: absolute;
+}
+
+.menuBars::after {
+  top: 0.5rem;
+}
+
+.menuBars::before {
+  top: -0.5rem;
+}
+
+.menuBars.open {
+  width: 0;
+}
+
+.menuBars.open::before {
+  transform: translateY(0.5rem) rotate(45deg);
+}
+
+.menuBars.open::after {
+  transform: translateY(-0.5rem) rotate(-45deg);
+}
+
+.fullMenuWrapper {
+  overflow: hidden;
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--marvel-color-dark);
+  z-index: 1;
+}
+
+.fullMenuWrapper.open {
+  left: 0;
+  display: block;
+  animation: opening 0.75s forwards ease-in-out;
+}
+
+.fullMenuWrapper.close {
+  left: 100%;
+  display: block;
+  animation: closing 0.75s forwards ease-in-out;
+}
+
+@keyframes opening {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes closing {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.menuListWrapper {
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.menuList {
+  list-style: none;
+}
+
+.menuItem:first-child {
+  margin-top: 0;
+}
+
+.menuItem {
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menuItem:hover {
+  transform: scale(1.075);
+}
