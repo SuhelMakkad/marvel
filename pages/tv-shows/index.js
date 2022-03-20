@@ -4,7 +4,7 @@ import NavBar from "../../components/NavBar";
 export default function TvShows() {
   return (
     <div>
-      <NavBar pageName="tv shows" />
+      <NavBar />
     </div>
   );
 }

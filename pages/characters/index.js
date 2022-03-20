@@ -5,11 +5,9 @@ import NavBar from "../../components/NavBar";
 export default function Characters() {
   return (
     <div>
-      <NavBar pageName="characters" />
+      <NavBar />
       <div className="mainWrapper">
-        <div className="wrapper">
-          {/* <Card /> */}
-        </div>
+        <div className="wrapper">{/* <Card /> */}</div>
       </div>
     </div>
   );
