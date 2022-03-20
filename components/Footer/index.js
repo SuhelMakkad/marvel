@@ -1,9 +1,9 @@
-import TopBar from "../TopBar";
+import MarvelBar from "../MarvelBar";
 
 export default function index() {
   return (
     <footer>
-      <TopBar />
+      <MarvelBar />
     </footer>
   );
 }
