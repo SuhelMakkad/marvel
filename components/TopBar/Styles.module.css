@@ -1,0 +1,45 @@
+.main {
+  isolation: isolate;
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 1.5rem var(--margin-right-left);
+  color: white;
+
+  z-index: 1;
+}
+
+.searchIcon {
+  cursor: pointer;
+  transition: fill 500ms, transform 200ms;
+}
+
+.searchIcon:hover {
+  fill: var(--marvel-color);
+  transform: scale(1.2);
+}
+
+.bannerImageWrapper {
+  position: relative;
+  height: 65vh;
+  min-height: 400px;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.75) 0%,
+    transparent 25%,
+    transparent 75%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.bannerImage {
+  z-index: -1;
+}

@@ -70,7 +70,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <PageHead title={heros[currentHero].name} />
 
       <div className={styles.bgHome + " " + styles[heros[currentHero].class + "Bg"]}></div>

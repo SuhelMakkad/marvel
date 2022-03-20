@@ -1,12 +1,15 @@
 import PageHead from "../../components/PageHead";
-import Card from "../../components/Card";
+import TopBar from "../../components/TopBar";
 import NavBar from "../../components/NavBar";
+import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 
 export default function Characters() {
   return (
     <div>
       <PageHead title="Characters" />
+
+      <TopBar />
 
       <NavBar />
 

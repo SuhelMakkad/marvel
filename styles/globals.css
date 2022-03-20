@@ -44,12 +44,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: marvel, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
+  font-family: marvel, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
 
   /* for mozilla */
   scrollbar-color: #cacccc rgba(104, 109, 110, 0.49);
   scrollbar-width: thin;
+}
+
+html,
+body {
+  background-color: #000;
 }
 
 a {

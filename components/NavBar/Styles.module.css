@@ -1,9 +1,9 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  padding: 0.45em var(--margin-right-left);
+  padding: 1.5rem var(--margin-right-left);
 
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(6px);
@@ -23,12 +23,35 @@
 
 .navItem {
   transition: color 100ms ease-in-out;
+  border: 1px solid white;
+  padding: 0.4em 0.5em;
 }
 .navItem.active {
-  /* background: repeating-linear-gradient(45deg, #3e0003 25%, #3e0003 50%, #ff9900 50%, #ff9900 75%);
-  background-size: 10px 10px;
-  background-clip: text; */
-  /* color: linear-gradient(-45deg, #3e0003, var(--marvel-color), #0f0141, #ff9900); */
+  animation: colorBreath 5s ease infinite, borderBreath 5s ease infinite;
+}
+
+@keyframes colorBreath {
+  0% {
+    color: #ff9900;
+  }
+  50% {
+    color: #f14d4d;
+  }
+  100% {
+    color: #ff9900;
+  }
+}
+
+@keyframes borderBreath {
+  0% {
+    border-color: #ff9900;
+  }
+  50% {
+    border-color: #f14d4d;
+  }
+  100% {
+    border-color: #ff9900;
+  }
 }
 
 .navItem:not(.active):hover {
