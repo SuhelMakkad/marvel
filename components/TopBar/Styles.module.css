@@ -1,5 +1,7 @@
 .main {
   isolation: isolate;
+  position: relative;
+  z-index: 5;
 }
 
 .navWrapper {

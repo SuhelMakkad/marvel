@@ -1,0 +1,62 @@
+.imageWrapper {
+  position: relative;
+  height: 324px;
+  width: 216px;
+  margin: auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.imageWrapper:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  animation: opacity 150ms linear;
+}
+
+.title {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.75rem;
+  color: white;
+  font-size: 1.2rem;
+  z-index: 2;
+  transform: translateY(-100px);
+  transition: transform 200ms;
+  animation: opacity 200ms linear;
+}
+
+.imageWrapper:hover .title {
+  transform: translateY(0px);
+}
+
+.description {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.75rem;
+  color: white;
+  font-size: 1.2rem;
+  z-index: 2;
+  transform: translateY(100px);
+  transition: transform 200ms;
+  animation: opacity 200ms linear;
+}
+
+.imageWrapper:hover .title,
+.imageWrapper:hover .description {
+  transform: translateY(0px);
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

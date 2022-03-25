@@ -2,8 +2,8 @@ import { to, objToString, getFormatedURL, getHashedURL } from "../../utils";
 import axios from "axios";
 
 export default async function handler(req, res) {
-  const offset = req.query.offset || 10;
-  const limit = req.query.limit || 10;
+  const offset = req.query.offset || 0;
+  const limit = req.query.limit || 20;
 
   const marvelApiStart = getHashedURL("https://gateway.marvel.com:443/v1/public/characters");
   const requestUrl = getFormatedURL({ baseURL: marvelApiStart, offset, limit });

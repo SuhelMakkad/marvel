@@ -1,9 +1,13 @@
-// import styles from "./Styles.module.css";
+import Image from "next/image";
 
-// export default function Card() {
-//   return (
-//     <div>
-//       <div className={styles.cardWrapper}></div>
-//     </div>
-//   );
-// }
+import styles from "./Styles.module.css";
+
+export default function Card({ src, title, description }) {
+  return (
+    <div className={styles.imageWrapper}>
+      <Image height={324} width={216} layout="intrinsic" src={src} />
+      <span className={styles.title}>{title}</span>
+      <span className={styles.description}>{description}</span>
+    </div>
+  );
+}
