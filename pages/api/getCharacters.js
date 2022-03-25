@@ -11,11 +11,14 @@ export default async function handler(req, res) {
 
   if (error) {
     const responseObj = { status: 500, message: "somthing wend wrong while getting the data" };
-    res.status(400).json(objToString(responseObj));
+    const responseStr = objToString(responseObj);
+
+    res.status(400).json(responseStr);
     return;
   }
 
-  const data = response.data.data;
+  const responseObj = response.data.data;
+  const responseStr = objToString(responseObj);
 
-  res.status(200).json(objToString(data));
+  res.status(200).json(responseStr);
 }
