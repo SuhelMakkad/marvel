@@ -65,6 +65,10 @@ button {
   outline: none;
 }
 
+.d-none {
+  display: none;
+}
+
 .mainWrapper {
   margin-right: var(--margin-right-left);
   margin-left: var(--margin-right-left);
