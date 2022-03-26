@@ -18,3 +18,7 @@ export default function Card({ src, title, description, href }) {
     ""
   );
 }
+
+export function LoadingCard() {
+  return <div className={`${styles.loadingCard} ${styles.animateLoading}`}></div>;
+}

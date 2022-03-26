@@ -52,6 +52,38 @@
   transform: translateY(0px);
 }
 
+.loadingCard {
+  height: 324px;
+  width: 216px;
+}
+
+.animateLoading {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.165),
+    rgba(255, 255, 255, 0.175),
+    rgba(255, 255, 255, 0.165),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.15)
+  );
+  background-size: 500% 100%;
+  animation: gradient 1s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes opacity {
   0% {
     opacity: 0;

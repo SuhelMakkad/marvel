@@ -3,9 +3,22 @@
   overflow: hidden;
 }
 
+.text {
+  position: absolute;
+  left: var(--margin-right-left);
+  right: var(--margin-right-left);
+  bottom: 2rem;
+
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 4px 4px 20px black;
+  line-height: 1.5;
+  z-index: 1;
+}
+
 .bannerImageWrapper {
   position: relative;
-  height: 65vh;
+  height: 75vh;
   min-height: 400px;
   isolation: isolate;
 }

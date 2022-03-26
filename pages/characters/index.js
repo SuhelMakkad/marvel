@@ -4,7 +4,7 @@ import PageHead from "../../components/PageHead";
 import TopBar from "../../components/TopBar";
 import BannerImage from "../../components/BannerImage";
 import NavBar from "../../components/NavBar";
-import Card from "../../components/Card";
+import Card, { LoadingCard } from "../../components/Card";
 import CardLoadingInditactor from "../../components/CardLoadingInditactor";
 import NoMoreToShow from "../../components/NoMoreToShow";
 import Footer from "../../components/Footer";
@@ -18,6 +18,7 @@ import { to, data } from "../../utils";
 import styles from "../../styles/Characters.module.css";
 
 export default function Characters() {
+  const [bannerHero, setBannerHero] = useState({});
   const [characters, setCharacters] = useState([]);
   const [offset, setOffset] = useState(0);
   const [showMoreCharacters, setShowMoreCharacters] = useState(true);
@@ -27,28 +28,62 @@ export default function Characters() {
     threshold: 1,
   });
 
-  useEffect(async () => {
-    if (!isBottomVisible) return;
+  const loadingCardCount = 20;
+  const bannerHerosId = [
+    1009683, 1009368, 1009220, 1009664, 1009610, 1009697, 1009351, 1017108, 1010733,
+  ];
 
+  const getPlaceHoldersCards = () => {
+    const placeHolderCards = [];
+
+    for (let i = 0; i < loadingCardCount; i++) {
+      placeHolderCards.push(<LoadingCard key={i} />);
+    }
+
+    return placeHolderCards;
+  };
+
+  const load20Characters = async () => {
     const getCharactersURL = `/api/getCharacters?offset=${offset}`;
     const [response, error] = await to(axios.get(getCharactersURL));
+
     if (error) {
       return;
     }
 
     const data = response.data;
 
-    console.log(data);
     if (offset === response.data.total) {
       setShowMoreCharacters(false);
       return;
     }
+
     setOffset((prev) => prev + 20);
     setCharacters((prev) => [...prev, ...data.results]);
 
     // console.log(data);
     // setOffset(20);
     // setCharacters(data.results);
+  };
+
+  useEffect(async () => {
+    const randomHeroId = bannerHerosId[Math.floor(Math.random() * bannerHerosId.length)];
+
+    const getCharacterURL = `/api/getCharacter?id=${randomHeroId}`;
+    const [response, error] = await to(axios.get(getCharacterURL));
+    if (error) {
+      return;
+    }
+
+    const bannerHero = response.data.results[0];
+
+    setBannerHero(bannerHero);
+    load20Characters();
+  }, []);
+
+  useEffect(() => {
+    if (!isBottomVisible) return;
+    load20Characters();
   }, [isBottomVisible]);
 
   return (
@@ -57,7 +92,14 @@ export default function Characters() {
 
       <TopBar />
 
-      <BannerImage imageSrc={"/index/thor-bg.png"} />
+      <BannerImage
+        title={bannerHero.name}
+        description={bannerHero.description}
+        imageSrc={
+          bannerHero.thumbnail &&
+          `${bannerHero.thumbnail.path}/detail.${bannerHero.thumbnail.extension}`
+        }
+      />
 
       <NavBar />
 
@@ -76,7 +118,7 @@ export default function Characters() {
                   }
                 />
               ))
-            : "Loading..."}
+            : getPlaceHoldersCards()}
         </div>
       </main>
 
