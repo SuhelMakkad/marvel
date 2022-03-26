@@ -8,7 +8,7 @@ export default function Comics() {
     <div>
       <PageHead title="Comics" />
 
-      <TopBar />
+      <TopBar imageSrc={"/index/thor-bg.png"} />
 
       <NavBar />
 

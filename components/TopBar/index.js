@@ -5,7 +5,7 @@ import SearchIcon from "../SearchIcon";
 
 import styles from "./Styles.module.css";
 
-export default function TopBar() {
+export default function TopBar({ imageSrc }) {
   return (
     <div className={styles.main}>
       <div className={styles.navWrapper}>
@@ -14,7 +14,7 @@ export default function TopBar() {
       </div>
 
       <div className={styles.bannerImageWrapper}>
-        <Image className={styles.bannerImage} src="/index/thor-bg.png" layout="fill" />
+        <Image className={styles.bannerImage} src={imageSrc} layout="fill" />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ export default function Movies() {
     <div>
       <PageHead title="Movies" />
 
-      <TopBar />
+      <TopBar imageSrc={"/index/thor-bg.png"} />
 
       <NavBar />
 

@@ -8,7 +8,7 @@ export default function TvShows() {
     <div>
       <PageHead title="Tv Shows" />
 
-      <TopBar />
+      <TopBar imageSrc={"/index/thor-bg.png"} />
 
       <NavBar />
 

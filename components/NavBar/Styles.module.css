@@ -28,6 +28,10 @@
 .navItem.active {
   animation: colorBreath 5s ease infinite, borderBreath 5s ease infinite;
 }
+.navItem.subActive {
+  color: #97938d;
+  border-color: #97938d;
+}
 
 @keyframes colorBreath {
   0% {
