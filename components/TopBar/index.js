@@ -12,10 +12,6 @@ export default function TopBar({ imageSrc }) {
         <Logo />
         <SearchIcon className={styles.searchIcon} size="32" />
       </div>
-
-      <div className={styles.bannerImageWrapper}>
-        <Image className={styles.bannerImage} src={imageSrc} layout="fill" />
-      </div>
     </div>
   );
 }

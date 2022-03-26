@@ -39,7 +39,9 @@ export default function Character() {
     <div>
       <PageHead title={character.name} />
 
-      <TopBar
+      <TopBar />
+
+      <BannerImage
         imageSrc={
           character.thumbnail &&
           `${character.thumbnail.path}/detail.${character.thumbnail.extension}`

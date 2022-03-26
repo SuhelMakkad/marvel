@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import PageHead from "../../components/PageHead";
 import TopBar from "../../components/TopBar";
+import BannerImage from "../../components/BannerImage";
 import NavBar from "../../components/NavBar";
 import Card from "../../components/Card";
 import CardLoadingInditactor from "../../components/CardLoadingInditactor";
@@ -54,7 +55,9 @@ export default function Characters() {
     <div>
       <PageHead title="Characters" />
 
-      <TopBar imageSrc={"/index/thor-bg.png"} />
+      <TopBar />
+
+      <BannerImage imageSrc={"/index/thor-bg.png"} />
 
       <NavBar />
 

@@ -1,5 +1,6 @@
 import PageHead from "../../components/PageHead";
 import TopBar from "../../components/TopBar";
+import BannerImage from "../../components/BannerImage";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
@@ -8,7 +9,9 @@ export default function Comics() {
     <div>
       <PageHead title="Comics" />
 
-      <TopBar imageSrc={"/index/thor-bg.png"} />
+      <TopBar />
+
+      <BannerImage imageSrc={"/index/thor-bg.png"} />
 
       <NavBar />
 

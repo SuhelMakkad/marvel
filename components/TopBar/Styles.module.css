@@ -29,19 +29,3 @@
   fill: var(--marvel-color);
   transform: scale(1.2);
 }
-
-.bannerImageWrapper {
-  position: relative;
-  height: 65vh;
-  min-height: 400px;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.75) 0%,
-    transparent 25%,
-    transparent 75%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-
-.bannerImage {
-  z-index: -1;
-}

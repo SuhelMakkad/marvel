@@ -5,9 +5,10 @@ import styles from "./Styles.module.css";
 
 export default function NavBar() {
   const router = useRouter();
-  console.log(router);
+
   const checkActiveClass = (path) => {
     const asPath = router.asPath;
+
     if (asPath === `/${path}`) {
       return styles.active;
     }
