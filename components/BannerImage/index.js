@@ -9,22 +9,21 @@ export default function BannerImage({ title, description, imageSrc, show = true 
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
 
-  const handleScrollEvent = (e) => {
-    if (!immageWrapperRef.current) return;
-    const imageDmapingFactor = 0.3;
-    immageWrapperRef.current.style.transform = `translateY(${
-      window.scrollY * imageDmapingFactor
-    }px)`;
+  const handleScrollEvent = () => {
+    if (immageWrapperRef.current) {
+      const dmapingFactor = 0.3;
+      immageWrapperRef.current.style.transform = `translateY(${window.scrollY * dmapingFactor}px)`;
+    }
 
-    if (!titleRef.current) return;
-    const titleDmapingFactor = 0.25;
-    titleRef.current.style.transform = `translateY(${window.scrollY * -titleDmapingFactor}px)`;
+    if (titleRef.current) {
+      const dmapingFactor = -0.25;
+      titleRef.current.style.transform = `translateY(${window.scrollY * dmapingFactor}px)`;
+    }
 
-    if (!descriptionRef.current) return;
-    const descriptionDmapingFactor = 0.15;
-    descriptionRef.current.style.transform = `translateY(${
-      window.scrollY * -descriptionDmapingFactor
-    }px)`;
+    if (descriptionRef.current) {
+      const dmapingFactor = -0.15;
+      descriptionRef.current.style.transform = `translateY(${window.scrollY * dmapingFactor}px)`;
+    }
   };
 
   useEffect(() => {
