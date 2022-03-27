@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     const responseObj = { status: 500, message: "somthing wend wrong while getting the data" };
     const responseStr = objToString(responseObj);
 
-    res.status(400).json(responseStr);
+    res.status(500).json(responseStr);
     return;
   }
 

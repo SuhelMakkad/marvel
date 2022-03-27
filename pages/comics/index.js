@@ -43,7 +43,7 @@ export default function Comics() {
 
     return placeHolderCards;
   };
-  console.log(comics);
+
   const getFocDate = (dates) => {
     if (!dates) return "";
 
@@ -119,23 +119,19 @@ export default function Comics() {
       <main className="mainWrapper">
         <div className="cardWrapper">
           {comics?.length
-            ? comics.map((comic) =>
-                comic.thumbnail?.path.includes("image_not_available") ? (
-                  ""
-                ) : (
-                  <Card
-                    key={comic.id}
-                    title={comic.title}
-                    description={getFocDate(comic.dates)}
-                    href={`/comics/${comic.id}`}
-                    showIfImageAvaialbe={true}
-                    src={
-                      comic.thumbnail &&
-                      `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`
-                    }
-                  />
-                )
-              )
+            ? comics.map((comic) => (
+                <Card
+                  key={comic.id}
+                  title={comic.title}
+                  description={getFocDate(comic.dates)}
+                  href={`/comics/${comic.id}`}
+                  showIfImageAvaialbe={true}
+                  src={
+                    comic.thumbnail &&
+                    `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`
+                  }
+                />
+              ))
             : getPlaceHoldersCards()}
         </div>
       </main>
