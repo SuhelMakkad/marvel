@@ -37,9 +37,9 @@ export default function NavBar() {
             <a>series</a>
           </Link>
         </li>
-        <li className={`${styles.navItem} ${checkActiveClass("event")}`}>
-          <Link href="/event">
-            <a>event</a>
+        <li className={`${styles.navItem} ${checkActiveClass("events")}`}>
+          <Link href="/events">
+            <a>events</a>
           </Link>
         </li>
       </ul>

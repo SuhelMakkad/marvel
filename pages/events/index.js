@@ -15,13 +15,13 @@ import useElementOnScreen from "../../hooks/useElementOnScreen";
 
 import { to, getMonthName, filterDuplicates } from "../../utils";
 
-import styles from "../../styles/Series.module.css";
+import styles from "../../styles/Events.module.css";
 
-export default function Series() {
-  const [bannerSeries, setBannerSeries] = useState({});
-  const [series, setSeries] = useState([]);
+export default function Events() {
+  const [bannerEvents, setBannerEvents] = useState({});
+  const [events, setEvents] = useState([]);
   const [offset, setOffset] = useState(0);
-  const [showMoreSeries, setShowMoreSeries] = useState(true);
+  const [showMoreEvents, setShowMoreEvents] = useState(true);
   const [containerRef, isBottomVisible] = useElementOnScreen({
     root: null,
     rootMargin: "0px 0px 0px 0px",
@@ -29,9 +29,7 @@ export default function Series() {
   });
 
   const loadingCardCount = 20;
-  const bannerSeriesId = [
-    29695, 27932, 32777, 30534, 417, 28177, 29493, 13830, 31982, 16449, 14246, 31903,
-  ];
+  const bannerEventsId = [280, 308, 60, 276, 327, 321, 212, 315, 251, 240];
 
   const getPlaceHoldersCards = () => {
     const placeHolderCards = [];
@@ -43,9 +41,9 @@ export default function Series() {
     return placeHolderCards;
   };
 
-  const load20Series = async () => {
-    const getSeriesURL = `/api/getSeries?offset=${offset}`;
-    const [response, error] = await to(axios.get(getSeriesURL));
+  const load20Events = async () => {
+    const getEventsURL = `/api/getEvents?offset=${offset}`;
+    const [response, error] = await to(axios.get(getEventsURL));
 
     if (error) {
       return;
@@ -54,46 +52,46 @@ export default function Series() {
     const data = response.data;
 
     if (offset === response.data.total) {
-      setShowMoreSeries(false);
+      setShowMoreEvents(false);
       return;
     }
 
     setOffset((prev) => prev + data.count);
-    setSeries((prev) => filterDuplicates([...prev, ...data.results], "id"));
+    setEvents((prev) => filterDuplicates([...prev, ...data.results], "id"));
   };
 
   useEffect(async () => {
-    const randomSeriesId = bannerSeriesId[Math.floor(Math.random() * bannerSeriesId.length)];
+    const randomEventsId = bannerEventsId[Math.floor(Math.random() * bannerEventsId.length)];
 
-    const getSeriesURL = `/api/getSeries/${randomSeriesId}`;
-    const [response, error] = await to(axios.get(getSeriesURL));
+    const getEventsURL = `/api/getEvents/${randomEventsId}`;
+    const [response, error] = await to(axios.get(getEventsURL));
     if (error) {
       return;
     }
 
-    const bannerSeries = response.data.results[0];
+    const bannerEvents = response.data.results[0];
 
-    setBannerSeries(bannerSeries);
-    load20Series();
+    setBannerEvents(bannerEvents);
+    load20Events();
   }, []);
 
   useEffect(() => {
-    if (!isBottomVisible || !series.length) return;
-    load20Series();
+    if (!isBottomVisible || !events.length) return;
+    load20Events();
   }, [isBottomVisible]);
 
   return (
     <div>
-      <PageHead title="Series" />
+      <PageHead title="Events" />
 
       <TopBar />
 
       <BannerImage
-        title={bannerSeries.title}
-        description={bannerSeries.description}
+        title={bannerEvents.title}
+        description={bannerEvents.description}
         imageSrc={
-          bannerSeries.thumbnail &&
-          `${bannerSeries.thumbnail.path}/detail.${bannerSeries.thumbnail.extension}`
+          bannerEvents.thumbnail &&
+          `${bannerEvents.thumbnail.path}/detail.${bannerEvents.thumbnail.extension}`
         }
       />
 
@@ -101,16 +99,17 @@ export default function Series() {
 
       <main className="mainWrapper">
         <div className="cardWrapper">
-          {series?.length
-            ? series.map((s) => (
+          {events?.length
+            ? events.map((event) => (
                 <Card
-                  key={s.id}
-                  title={s.title}
-                  description={`${s.startYear} -  ${s.endYear}`}
-                  href={`/series/${s.id}`}
+                  key={event.id}
+                  title={event.title}
+                  description={`${event.startYear} -  ${event.endYear}`}
+                  href={`/events/${event.id}`}
                   showIfImageAvaialbe={true}
                   src={
-                    s.thumbnail && `${s.thumbnail.path}/portrait_uncanny.${s.thumbnail.extension}`
+                    event.thumbnail &&
+                    `${event.thumbnail.path}/portrait_uncanny.${event.thumbnail.extension}`
                   }
                 />
               ))
@@ -118,7 +117,7 @@ export default function Series() {
         </div>
       </main>
 
-      {showMoreSeries ? (
+      {showMoreEvents ? (
         <div ref={containerRef}>
           <CardLoadingInditactor />
         </div>
