@@ -8,15 +8,18 @@
 }
 
 .textSection {
-  color: #fff;
   max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
-  font-size: 2rem;
-  margin: 3rem 0;
+  font-size: 2.75rem;
+  margin: 2.5rem 0 1.5rem 0;
 }
 
 .description {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  word-spacing: 2px;
 }

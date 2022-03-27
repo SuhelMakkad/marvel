@@ -10,8 +10,6 @@ import Footer from "../../components/Footer";
 
 import axios from "axios";
 
-import useElementOnScreen from "../../hooks/useElementOnScreen";
-
 import { to } from "../../utils";
 
 import styles from "../../styles/Characters.module.css";
@@ -30,7 +28,6 @@ export default function Character() {
     if (error) return;
 
     const data = response.data;
-    console.log(data);
     setItem(data.results[0]);
   }, [id]);
   return (
