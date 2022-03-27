@@ -69,7 +69,7 @@ export default function Characters() {
   useEffect(async () => {
     const randomHeroId = bannerHerosId[Math.floor(Math.random() * bannerHerosId.length)];
 
-    const getCharacterURL = `/api/getCharacter?id=${randomHeroId}`;
+    const getCharacterURL = `/api/getCharacters/${randomHeroId}`;
     const [response, error] = await to(axios.get(getCharacterURL));
     if (error) {
       return;

@@ -42,4 +42,23 @@ const getFormatedURL = (obj) => {
   return formatedURL;
 };
 
-export { to, md5, objToString, getFormatedURL, getHashedURL };
+const getMonthName = (date) => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const monthName = months[date.getMonth()];
+  return monthName;
+};
+
+export { to, md5, objToString, getFormatedURL, getHashedURL, getMonthName };

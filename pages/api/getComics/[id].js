@@ -1,12 +1,16 @@
-import { to, objToString, getFormatedURL, getHashedURL } from "../../utils";
+import { to, objToString, getFormatedURL, getHashedURL } from "../../../utils";
 import axios from "axios";
 
 export default async function handler(req, res) {
-  const offset = req.query.offset || 0;
-  const limit = req.query.limit || 20;
+  const { id } = req.query;
 
-  const marvelApiStart = getHashedURL("https://gateway.marvel.com:443/v1/public/characters");
-  const requestUrl = getFormatedURL({ baseURL: marvelApiStart, offset, limit });
+  if (!id) {
+    res.status(400).json({ message: "Charater Id not found" });
+    return;
+  }
+
+  const marvelApiStart = getHashedURL(`https://gateway.marvel.com:443/v1/public/comics/${id}`);
+  const requestUrl = marvelApiStart;
   const [response, error] = await to(axios.get(requestUrl));
 
   if (error) {
@@ -14,6 +18,7 @@ export default async function handler(req, res) {
     const responseStr = objToString(responseObj);
 
     res.status(400).json(responseStr);
+    console.log(requestUrl);
     return;
   }
 
