@@ -34,18 +34,18 @@ function Menu() {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link href="/movies">
-                <a>movies</a>
-              </Link>
-            </li>
-            <li className={styles.menuItem}>
-              <Link href="/tv-shows">
-                <a>tv shows</a>
-              </Link>
-            </li>
-            <li className={styles.menuItem}>
               <Link href="/comics">
                 <a>comics</a>
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/series">
+                <a>series</a>
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/events">
+                <a>events</a>
               </Link>
             </li>
           </ul>
