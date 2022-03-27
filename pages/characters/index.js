@@ -13,7 +13,7 @@ import axios from "axios";
 
 import useElementOnScreen from "../../hooks/useElementOnScreen";
 
-import { to, data } from "../../utils";
+import { to } from "../../utils";
 
 import styles from "../../styles/Characters.module.css";
 

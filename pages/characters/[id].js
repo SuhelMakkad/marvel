@@ -19,12 +19,12 @@ import styles from "../../styles/Characters.module.css";
 export default function Character() {
   const [character, setCharacter] = useState({});
   const router = useRouter();
-  const { charId } = router.query;
+  const { id } = router.query;
 
   useEffect(async () => {
-    if (!charId) return;
+    if (!id) return;
 
-    const getCharacterURL = `/api/getCharacter?id=${charId}`;
+    const getCharacterURL = `/api/getCharacter?id=${id}`;
     const [response, error] = await to(axios.get(getCharacterURL));
 
     if (error) {
@@ -33,9 +33,8 @@ export default function Character() {
 
     const data = response.data;
 
-    console.log(data);
     setCharacter(data.results[0]);
-  }, [charId]);
+  }, [id]);
   return (
     <div>
       <PageHead title={character.name} />
