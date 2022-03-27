@@ -1,10 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Image from "next/image";
 
 import styles from "./Styles.module.css";
 
 export default function BannerImage({ title, description, imageSrc, show = true }) {
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
   const immageWrapperRef = useRef(null);
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -40,7 +42,11 @@ export default function BannerImage({ title, description, imageSrc, show = true 
         <h2 ref={titleRef} className={styles.title}>
           {title}
         </h2>
-        <p ref={descriptionRef} className={styles.description}>
+        <p
+          ref={descriptionRef}
+          onClick={() => setShowFullDescription((prev) => !prev)}
+          className={`${styles.description} ${showFullDescription ? styles.lineClampAuto : ""}`}
+        >
           {description}
         </p>
       </div>

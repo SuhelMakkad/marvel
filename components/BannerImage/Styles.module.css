@@ -38,3 +38,18 @@
 .bannerImage {
   z-index: -1;
 }
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  transition: line-clamp 200ms;
+}
+
+.description.lineClampAuto {
+  line-clamp: initial;
+  -webkit-line-clamp: initial;
+}

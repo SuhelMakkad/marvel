@@ -60,10 +60,6 @@ export default function Characters() {
 
     setOffset((prev) => prev + 20);
     setCharacters((prev) => [...prev, ...data.results]);
-
-    // console.log(data);
-    // setOffset(20);
-    // setCharacters(data.results);
   };
 
   useEffect(async () => {
@@ -82,7 +78,7 @@ export default function Characters() {
   }, []);
 
   useEffect(() => {
-    if (!isBottomVisible) return;
+    if (!isBottomVisible || !characters.length) return;
     load20Characters();
   }, [isBottomVisible]);
 

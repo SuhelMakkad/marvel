@@ -29,7 +29,10 @@ export default function Comics() {
   });
 
   const loadingCardCount = 20;
-  const bannerComicsId = [82967];
+  const bannerComicsId = [
+    65149, 49008, 100675, 61791, 66060, 62424, 61465, 20945, 30941, 61788, 76696, 56759, 98377,
+    100621,
+  ];
 
   const getPlaceHoldersCards = () => {
     const placeHolderCards = [];
@@ -92,10 +95,9 @@ export default function Comics() {
   }, []);
 
   useEffect(() => {
-    if (!isBottomVisible) return;
+    if (!isBottomVisible || !comics.length) return;
     load20Comics();
   }, [isBottomVisible]);
-  console.log(comics);
 
   return (
     <div>
