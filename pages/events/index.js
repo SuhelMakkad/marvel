@@ -60,6 +60,26 @@ export default function Events() {
     setEvents((prev) => filterDuplicates([...prev, ...data.results], "id"));
   };
 
+  const getFormatedDate = (date) => {
+    if (!date) return "";
+
+    const formatedDate = new Date(date);
+    const monthName = getMonthName(formatedDate);
+
+    /* Invalid Date */
+    if (!monthName) return "";
+
+    return `${monthName} ${formatedDate.getFullYear()}`;
+  };
+
+  const getDateRange = (startDate, endDate) => {
+    const formatedStartDate = getFormatedDate(startDate);
+    const formatedEndDate = getFormatedDate(endDate);
+
+    if (!formatedStartDate || !formatedEndDate) return;
+    return `${formatedStartDate} - ${formatedEndDate}`;
+  };
+
   useEffect(async () => {
     const randomEventsId = bannerEventsId[Math.floor(Math.random() * bannerEventsId.length)];
 
@@ -104,7 +124,7 @@ export default function Events() {
                 <Card
                   key={event.id}
                   title={event.title}
-                  description={`${event.startYear} -  ${event.endYear}`}
+                  description={getDateRange(event.start, event.end)}
                   href={`/events/${event.id}`}
                   showIfImageAvaialbe={true}
                   src={
