@@ -6,18 +6,7 @@ export default function ItemDetails({ imageSrc, title, description }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageSection}>
-        {imageSrc ? (
-          <Image
-            width={550}
-            height={550}
-            alt={"title"}
-            layout="intrinsic"
-            src={imageSrc}
-            objectFit="cover"
-          />
-        ) : (
-          ""
-        )}
+        {imageSrc ? <Image alt={title} layout="fill" src={imageSrc} objectFit="contain" /> : ""}
       </div>
 
       <div className={styles.textSection}>
