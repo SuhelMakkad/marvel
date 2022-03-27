@@ -45,7 +45,7 @@ export default function BannerImage({ title, description, imageSrc, show = true 
         <p
           ref={descriptionRef}
           onClick={() => setShowFullDescription((prev) => !prev)}
-          className={`${styles.description} ${showFullDescription ? styles.lineClampAuto : ""}`}
+          className={`${styles.description} ${showFullDescription ? styles.showFullText : ""}`}
         >
           {description}
         </p>
