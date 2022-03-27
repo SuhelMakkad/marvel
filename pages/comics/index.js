@@ -108,6 +108,7 @@ export default function Comics() {
       <BannerImage
         title={bannerComic.title}
         description={bannerComic.description}
+        href={`/comics/${bannerComic.id}`}
         imageSrc={
           bannerComic.thumbnail &&
           `${bannerComic.thumbnail.path}/detail.${bannerComic.thumbnail.extension}`

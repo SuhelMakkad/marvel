@@ -109,6 +109,7 @@ export default function Events() {
       <BannerImage
         title={bannerEvents.title}
         description={bannerEvents.description}
+        href={`/events/${bannerEvents.id}`}
         imageSrc={
           bannerEvents.thumbnail &&
           `${bannerEvents.thumbnail.path}/detail.${bannerEvents.thumbnail.extension}`

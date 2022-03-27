@@ -3,8 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 import styles from "./Styles.module.css";
+import Link from "next/link";
 
-export default function BannerImage({ title, description, imageSrc, show = true }) {
+export default function BannerImage({ title, description, href, imageSrc, show = true }) {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const immageWrapperRef = useRef(null);
@@ -39,9 +40,13 @@ export default function BannerImage({ title, description, imageSrc, show = true 
   return (
     <div className={styles.main}>
       <div className={styles.text}>
-        <h2 ref={titleRef} className={styles.title}>
-          {title}
-        </h2>
+        <Link href={href || "/"}>
+          <a>
+            <h2 ref={titleRef} className={styles.title}>
+              {title}
+            </h2>
+          </a>
+        </Link>
         <p
           ref={descriptionRef}
           onClick={() => setShowFullDescription((prev) => !prev)}

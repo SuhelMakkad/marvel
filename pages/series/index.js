@@ -91,6 +91,7 @@ export default function Series() {
       <BannerImage
         title={bannerSeries.title}
         description={bannerSeries.description}
+        href={`/series/${bannerSeries.id}`}
         imageSrc={
           bannerSeries.thumbnail &&
           `${bannerSeries.thumbnail.path}/detail.${bannerSeries.thumbnail.extension}`

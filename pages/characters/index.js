@@ -91,6 +91,7 @@ export default function Characters() {
       <BannerImage
         title={bannerHero.name}
         description={bannerHero.description}
+        href={`/characters/${bannerHero.id}`}
         imageSrc={
           bannerHero.thumbnail &&
           `${bannerHero.thumbnail.path}/detail.${bannerHero.thumbnail.extension}`
