@@ -27,19 +27,19 @@ export default function NavBar() {
             <a>characters</a>
           </Link>
         </li>
-        <li className={`${styles.navItem} ${checkActiveClass("movies")}`}>
-          <Link href="/movies">
-            <a>movies</a>
-          </Link>
-        </li>
-        <li className={`${styles.navItem} ${checkActiveClass("tv-shows")}`}>
-          <Link href="/tv-shows">
-            <a>tv shows</a>
-          </Link>
-        </li>
         <li className={`${styles.navItem} ${checkActiveClass("comics")}`}>
           <Link href="/comics">
             <a>comics</a>
+          </Link>
+        </li>
+        <li className={`${styles.navItem} ${checkActiveClass("series")}`}>
+          <Link href="/series">
+            <a>series</a>
+          </Link>
+        </li>
+        <li className={`${styles.navItem} ${checkActiveClass("event")}`}>
+          <Link href="/event">
+            <a>event</a>
           </Link>
         </li>
       </ul>
