@@ -7,6 +7,7 @@ export default async function handler(req, res) {
 
   const marvelApiStart = getHashedURL("https://gateway.marvel.com:443/v1/public/comics");
   const requestUrl = getFormatedURL({ baseURL: marvelApiStart, offset, limit });
+
   const [response, error] = await to(axios.get(requestUrl));
 
   if (error) {

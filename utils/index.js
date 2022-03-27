@@ -61,4 +61,15 @@ const getMonthName = (date) => {
   return monthName;
 };
 
-export { to, md5, objToString, getFormatedURL, getHashedURL, getMonthName };
+const filterDuplicates = (arr, filterBy) => {
+  if (!arr || !arr.length || !filterBy) return [];
+
+  return arr.reduce((previous, current) => {
+    if (previous.filter((x) => x[filterBy] === current[filterBy])[0]) return previous;
+
+    previous.push(current);
+    return previous;
+  }, []);
+};
+
+export { to, md5, objToString, getFormatedURL, getHashedURL, getMonthName, filterDuplicates };

@@ -3,7 +3,11 @@ import Link from "next/link";
 
 import styles from "./Styles.module.css";
 
-export default function Card({ src, title, description, href }) {
+export default function Card({ src, title, description, href, showIfImageAvaialbe }) {
+  if (showIfImageAvaialbe && src?.includes("image_not_available")) {
+    return "";
+  }
+
   return src ? (
     <Link href={href}>
       <a>

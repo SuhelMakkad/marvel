@@ -13,7 +13,7 @@ import axios from "axios";
 
 import useElementOnScreen from "../../hooks/useElementOnScreen";
 
-import { to, getMonthName } from "../../utils";
+import { to, getMonthName, filterDuplicates } from "../../utils";
 
 import styles from "../../styles/Comics.module.css";
 
@@ -43,6 +43,22 @@ export default function Comics() {
 
     return placeHolderCards;
   };
+  console.log(comics);
+  const getFocDate = (dates) => {
+    if (!dates) return "";
+
+    const focDate = dates.filter((date) => date.type === "focDate")[0];
+
+    if (!focDate) return "";
+
+    const date = new Date(focDate.date);
+    const monthName = getMonthName(date);
+
+    /* Invalid Date */
+    if (!monthName) return "";
+
+    return `${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+  };
 
   const load20Comics = async () => {
     const getComicsURL = `/api/getComics?offset=${offset}`;
@@ -59,24 +75,8 @@ export default function Comics() {
       return;
     }
 
-    setOffset((prev) => prev + 20);
-    setComics((prev) => [...prev, ...data.results]);
-  };
-
-  const getFocDate = (dates) => {
-    if (!dates) return "";
-
-    const focDate = dates.filter((date) => date.type === "focDate")[0];
-
-    if (!focDate) return "";
-
-    const date = new Date(focDate.date);
-    const monthName = getMonthName(date);
-
-    /* Invalid Date */
-    if (!monthName) return "";
-
-    return `${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+    setOffset((prev) => prev + data.count);
+    setComics((prev) => filterDuplicates([...prev, ...data.results], "id"));
   };
 
   useEffect(async () => {
@@ -118,19 +118,24 @@ export default function Comics() {
 
       <main className="mainWrapper">
         <div className="cardWrapper">
-          {comics && comics.length
-            ? comics.map((comic) => (
-                <Card
-                  key={comic.id}
-                  title={comic.title}
-                  description={getFocDate(comic.dates)}
-                  href={`/comics/${comic.id}`}
-                  src={
-                    comic.thumbnail &&
-                    `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`
-                  }
-                />
-              ))
+          {comics?.length
+            ? comics.map((comic) =>
+                comic.thumbnail?.path.includes("image_not_available") ? (
+                  ""
+                ) : (
+                  <Card
+                    key={comic.id}
+                    title={comic.title}
+                    description={getFocDate(comic.dates)}
+                    href={`/comics/${comic.id}`}
+                    showIfImageAvaialbe={true}
+                    src={
+                      comic.thumbnail &&
+                      `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`
+                    }
+                  />
+                )
+              )
             : getPlaceHoldersCards()}
         </div>
       </main>

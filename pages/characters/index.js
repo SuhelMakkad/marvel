@@ -13,7 +13,7 @@ import axios from "axios";
 
 import useElementOnScreen from "../../hooks/useElementOnScreen";
 
-import { to } from "../../utils";
+import { to, filterDuplicates } from "../../utils";
 
 import styles from "../../styles/Characters.module.css";
 
@@ -58,8 +58,8 @@ export default function Characters() {
       return;
     }
 
-    setOffset((prev) => prev + 20);
-    setCharacters((prev) => [...prev, ...data.results]);
+    setOffset((prev) => prev + data.count);
+    setCharacters((prev) => filterDuplicates([...prev, ...data.results], "id"));
   };
 
   useEffect(async () => {
@@ -101,13 +101,14 @@ export default function Characters() {
 
       <main className="mainWrapper">
         <div className="cardWrapper">
-          {characters && characters.length
+          {characters?.length
             ? characters.map((character) => (
                 <Card
                   key={character.id}
                   title={character.name}
                   description={character.series?.items[0]?.name}
                   href={`/characters/${character.id}`}
+                  showIfImageAvaialbe={true}
                   src={
                     character.thumbnail &&
                     `${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`
