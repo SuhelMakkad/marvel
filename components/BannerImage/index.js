@@ -5,7 +5,14 @@ import Image from "next/image";
 import styles from "./Styles.module.css";
 import Link from "next/link";
 
-export default function BannerImage({ title, description, href, imageSrc, show = true }) {
+export default function BannerImage({
+  title,
+  description,
+  href,
+  imageSrc,
+  show = true,
+  priority = true,
+}) {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const immageWrapperRef = useRef(null);
@@ -58,7 +65,14 @@ export default function BannerImage({ title, description, href, imageSrc, show =
 
       <div ref={immageWrapperRef} className={styles.bannerImageWrapper}>
         {show && imageSrc ? (
-          <Image className={styles.bannerImage} src={imageSrc} layout="fill" objectFit="cover" />
+          <Image
+            priority={priority}
+            className={styles.bannerImage}
+            alt={title}
+            src={imageSrc}
+            layout="fill"
+            objectFit="cover"
+          />
         ) : (
           ""
         )}
