@@ -93,8 +93,7 @@ export default function Characters() {
         description={bannerHero.description}
         href={`/characters/${bannerHero.id}`}
         imageSrc={
-          bannerHero.thumbnail &&
-          `${bannerHero.thumbnail.path}/detail.${bannerHero.thumbnail.extension}`
+          bannerHero.thumbnail && `${bannerHero.thumbnail.path}.${bannerHero.thumbnail.extension}`
         }
       />
 

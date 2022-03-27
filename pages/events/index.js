@@ -112,7 +112,7 @@ export default function Events() {
         href={`/events/${bannerEvents.id}`}
         imageSrc={
           bannerEvents.thumbnail &&
-          `${bannerEvents.thumbnail.path}/detail.${bannerEvents.thumbnail.extension}`
+          `${bannerEvents.thumbnail.path}.${bannerEvents.thumbnail.extension}`
         }
       />
 

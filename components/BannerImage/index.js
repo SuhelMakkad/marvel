@@ -58,7 +58,7 @@ export default function BannerImage({ title, description, href, imageSrc, show =
 
       <div ref={immageWrapperRef} className={styles.bannerImageWrapper}>
         {show && imageSrc ? (
-          <Image className={styles.bannerImage} src={imageSrc} layout="fill" />
+          <Image className={styles.bannerImage} src={imageSrc} layout="fill" objectFit="cover" />
         ) : (
           ""
         )}

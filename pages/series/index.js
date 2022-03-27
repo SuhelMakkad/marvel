@@ -94,7 +94,7 @@ export default function Series() {
         href={`/series/${bannerSeries.id}`}
         imageSrc={
           bannerSeries.thumbnail &&
-          `${bannerSeries.thumbnail.path}/detail.${bannerSeries.thumbnail.extension}`
+          `${bannerSeries.thumbnail.path}.${bannerSeries.thumbnail.extension}`
         }
       />
 

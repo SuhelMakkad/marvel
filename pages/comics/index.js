@@ -111,7 +111,7 @@ export default function Comics() {
         href={`/comics/${bannerComic.id}`}
         imageSrc={
           bannerComic.thumbnail &&
-          `${bannerComic.thumbnail.path}/detail.${bannerComic.thumbnail.extension}`
+          `${bannerComic.thumbnail.path}.${bannerComic.thumbnail.extension}`
         }
       />
 
