@@ -66,6 +66,11 @@ button {
   outline: none;
 }
 
+ol,
+ul {
+  list-style-type: none;
+}
+
 .d-none {
   display: none;
 }

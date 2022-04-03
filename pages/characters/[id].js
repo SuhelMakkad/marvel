@@ -11,10 +11,15 @@ import axios from "axios";
 import { to } from "../../utils";
 
 import styles from "../../styles/Characters.module.css";
-import Logo from "../../components/Logo";
+import ListGroup from "../../components/ListGroup";
 
 export default function Character({ item }) {
-  return item ? (
+  if (!item) return "";
+
+  const { name, description, thumbnail, comics, events, series, characters } = item;
+  const resources = Object.entries({ comics, events, series, characters });
+
+  return (
     <div>
       <PageHead title={item.name} />
 
@@ -25,17 +30,17 @@ export default function Character({ item }) {
       <main className={styles.main}>
         <div className="mainWrapper">
           <ItemDetails
-            title={item.name}
-            description={item.description}
-            imageSrc={item.thumbnail && `${item.thumbnail.path}/detail.${item.thumbnail.extension}`}
+            title={name}
+            description={description}
+            imageSrc={thumbnail && `${thumbnail.path}/detail.${thumbnail.extension}`}
           />
+
+          <ListGroup items={resources} />
         </div>
       </main>
 
       <Footer />
     </div>
-  ) : (
-    ""
   );
 }
 

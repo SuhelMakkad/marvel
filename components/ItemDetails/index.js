@@ -11,7 +11,7 @@ export default function ItemDetails({ imageSrc, title, description }) {
 
       <div className={styles.textSection}>
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.description}>{description}</p>
+        <p className={styles.description}>{description || "No description available"}</p>
       </div>
     </div>
   );

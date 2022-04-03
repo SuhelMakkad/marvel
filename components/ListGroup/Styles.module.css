@@ -1,0 +1,43 @@
+.mainWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.heading {
+  text-transform: capitalize;
+  font-weight: 550;
+  font-size: 2rem;
+  position: relative;
+  margin-bottom: 1.25rem;
+  width: max-content;
+}
+
+.heading::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: -1rem;
+  border: none;
+  border-bottom: 1px solid var(--marvel-color-dark);
+  transition: transform 200ms, border-width 200ms;
+  transform-origin: top left;
+}
+
+.heading:hover::after {
+  border-width: 2px;
+  transform: scale(1.1);
+}
+
+.text {
+  font-size: 1.275rem;
+  line-height: 1.5;
+  word-spacing: 2px;
+  transition: color 200ms;
+}
+
+.text:hover {
+  color: var(--marvel-color);
+}
