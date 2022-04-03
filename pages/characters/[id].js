@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import { useRouter } from "next/router";
 
 import PageHead from "../../components/PageHead";
@@ -13,24 +11,10 @@ import axios from "axios";
 import { to } from "../../utils";
 
 import styles from "../../styles/Characters.module.css";
+import Logo from "../../components/Logo";
 
-export default function Character() {
-  const [item, setItem] = useState({});
-  const router = useRouter();
-  const { id } = router.query;
-
-  useEffect(async () => {
-    if (!id) return;
-
-    const getItemURL = `/api/getCharacters/${id}`;
-    const [response, error] = await to(axios.get(getItemURL));
-
-    if (error) return;
-
-    const data = response.data;
-    setItem(data.results[0]);
-  }, [id]);
-  return (
+export default function Character({ item }) {
+  return item ? (
     <div>
       <PageHead title={item.name} />
 
@@ -50,5 +34,26 @@ export default function Character() {
 
       <Footer />
     </div>
+  ) : (
+    ""
   );
+}
+
+export async function getStaticProps({ params }) {
+  const { id } = params;
+  const BASE_URL = process.env.BASE_URL;
+
+  const [response, error] = await to(axios.get(`${BASE_URL}/api/getCharacters/${id}`));
+  const item = await response.data.results[0];
+
+  return {
+    props: { item },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: ["/characters/1011334"],
+    fallback: true,
+  };
 }
