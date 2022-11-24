@@ -10,7 +10,6 @@ export default function TopBar({ margin = false }) {
     <div style={{ marginBottom: `${margin ? "5rem" : ""}` }} className={styles.main}>
       <div className={styles.navWrapper}>
         <Logo />
-        <SearchIcon className={styles.searchIcon} size="32" />
       </div>
     </div>
   );
