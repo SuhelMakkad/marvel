@@ -4,7 +4,6 @@
   width: 216px;
   margin: auto;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .imageWrapper:hover::before {

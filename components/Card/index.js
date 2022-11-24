@@ -9,15 +9,11 @@ export default function Card({ src, title, description, href, showIfImageAvaialb
   }
 
   return src ? (
-    <Link href={href}>
-      <a>
-        <div className={styles.imageWrapper}>
-          <Image height={324} width={216} alt={title} layout="intrinsic" src={src} />
-          <span className={styles.title}>{title}</span>
-          <span className={styles.description}>{description}</span>
-        </div>
-      </a>
-    </Link>
+    <div className={styles.imageWrapper}>
+      <Image height={324} width={216} alt={title} layout="intrinsic" src={src} />
+      <span className={styles.title}>{title}</span>
+      <span className={styles.description}>{description}</span>
+    </div>
   ) : (
     ""
   );

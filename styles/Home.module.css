@@ -90,7 +90,7 @@
   font-weight: 600;
 }
 
-.discription {
+.description {
   margin-top: 1rem;
   font-size: clamp(1rem, 2vw, 1.35rem);
   line-height: 1.35;
@@ -99,9 +99,8 @@
 .heroImgWrapper {
   position: fixed;
   top: 50%;
-  transform: translateY(-50%);
   right: 42px;
-  width: max-content;
+  transform: translateY(-50%);
   z-index: -1;
 }
 
