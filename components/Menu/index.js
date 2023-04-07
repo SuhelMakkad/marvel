@@ -29,24 +29,16 @@ function Menu() {
         <div className={styles.menuListWrapper}>
           <ul className={styles.menuList}>
             <li className={styles.menuItem}>
-              <Link href="/characters">
-                <a>characters</a>
-              </Link>
+              <Link href="/characters">characters</Link>
             </li>
             <li className={styles.menuItem}>
-              <Link href="/comics">
-                <a>comics</a>
-              </Link>
+              <Link href="/comics">comics</Link>
             </li>
             <li className={styles.menuItem}>
-              <Link href="/series">
-                <a>series</a>
-              </Link>
+              <Link href="/series">series</Link>
             </li>
             <li className={styles.menuItem}>
-              <Link href="/events">
-                <a>events</a>
-              </Link>
+              <Link href="/events">events</Link>
             </li>
           </ul>
         </div>

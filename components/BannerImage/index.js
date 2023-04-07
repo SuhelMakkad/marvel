@@ -47,13 +47,9 @@ export default function BannerImage({
   return (
     <div className={styles.main}>
       <div className={styles.text}>
-        <Link href={href || "/"}>
-          <a>
-            <h2 ref={titleRef} className={styles.title}>
-              {title}
-            </h2>
-          </a>
-        </Link>
+        <h2 ref={titleRef} className={styles.title}>
+          <Link href={href || "/"}>{title || ""}</Link>
+        </h2>
         <p
           ref={descriptionRef}
           onClick={() => setShowFullDescription((prev) => !prev)}

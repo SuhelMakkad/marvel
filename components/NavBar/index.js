@@ -23,24 +23,16 @@ export default function NavBar() {
     <nav className={styles.navbar}>
       <ul className={styles.navList}>
         <li className={`${styles.navItem} ${checkActiveClass("characters")}`}>
-          <Link href="/characters">
-            <a>characters</a>
-          </Link>
+          <Link href="/characters">characters</Link>
         </li>
         <li className={`${styles.navItem} ${checkActiveClass("comics")}`}>
-          <Link href="/comics">
-            <a>comics</a>
-          </Link>
+          <Link href="/comics">comics</Link>
         </li>
         <li className={`${styles.navItem} ${checkActiveClass("series")}`}>
-          <Link href="/series">
-            <a>series</a>
-          </Link>
+          <Link href="/series">series</Link>
         </li>
         <li className={`${styles.navItem} ${checkActiveClass("events")}`}>
-          <Link href="/events">
-            <a>events</a>
-          </Link>
+          <Link href="/events">events</Link>
         </li>
       </ul>
     </nav>

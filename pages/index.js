@@ -107,10 +107,8 @@ export default function Home() {
           />
         </div>
 
-        <Link href="/characters">
-          <a>
-            <button className={styles.exploreBtn}>explore</button>
-          </a>
+        <Link href="/characters" className={styles.exploreBtn}>
+          explore
         </Link>
       </main>
     </div>
