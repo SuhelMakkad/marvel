@@ -2,9 +2,9 @@ import crypto from "crypto";
 
 const md5 = (data) => crypto.createHash("md5").update(data).digest("hex");
 
-const to = async (promis) => {
+const to = async (promise) => {
   try {
-    const data = await promis;
+    const data = await promise;
     return [data, null];
   } catch (error) {
     console.error(error);

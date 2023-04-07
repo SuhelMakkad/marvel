@@ -18,8 +18,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const responseObj = response.data.data;
-  const responseStr = objToString(responseObj);
+  const data = response.data.data;
 
-  res.status(200).json(responseStr);
+  res.status(200).json(data);
 }
