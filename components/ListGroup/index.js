@@ -3,7 +3,6 @@ import List from "./List";
 import styles from "./Styles.module.css";
 
 export default function ListGroup({ items }) {
-  console.log(items);
   items = items.filter(([_, item]) => item);
 
   if (!items || !items.length) {

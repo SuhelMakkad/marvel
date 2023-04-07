@@ -25,7 +25,7 @@ export default function Character() {
     if (!id) return;
 
     const getCharacterURL = `/api/getCharacters/${id}`;
-    console.log(getCharacterURL);
+
     const [response, error] = await to(axios.get(getCharacterURL));
 
     if (error) {

@@ -70,7 +70,7 @@ export default function Home() {
       if (!heroImg.current) return document.removeEventListener("mousemove", onMouseMove);
       const translateX = Math.min(e.clientX / 150, 3);
       const translateY = Math.min(e.clientY / 150, 5);
-      console.log(translateX, translateY);
+
       heroImg.current.style.transform = `translate(${-translateX}%, ${-translateY - 50}%)`;
     };
 
